@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MERACH P16 Launch Page</title>
+<style>[hidden]{display:none!important}body{margin:0}</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap">
+<style>
+/* Layout: Figma 教育页-PC-B (node 2540:6413). 1920 canvas, 1440 content column.
+   Dark run: banner → Angled Smith → Pick Your Angled → Train Heavy. Train Safe.
+   Light run (#edf0f3): All in one → A Full Gym → Details carousel → Trust. Close on full-bleed test video. */
+:root{
+  --black:#000;
+  --paper:#edf0f3;
+  --ink:#161616;
+  --blue:#099cff;
+  --blue-2:#006fee;
+  --card-dark:#2d2d2d;
+  --w10:rgba(255,255,255,.1);
+  --w40:rgba(255,255,255,.4);
+  --w50:rgba(255,255,255,.5);
+  --b05:rgba(0,0,0,.05);
+  --b10:rgba(0,0,0,.1);
+  --b30:rgba(0,0,0,.3);
+  --b40:rgba(0,0,0,.4);
+  --b50:rgba(0,0,0,.5);
+  --muted:#52525b;
+  --soft:#9a9999;
+  --grey:#7f7f7f;
+  --white:#fff;
+  --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  --gutter:max(16px,env(safe-area-inset-left,0px));
+  --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.4}
+p{margin:0}
+h1,h2,h3{margin:0;text-wrap:balance}
+img{display:block;max-width:100%}
+.col{width:min(1440px,100%);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+@media (min-width:1472px){.col{padding-left:0;padding-right:0}}
+.h44{font-size:clamp(28px,2.3vw,44px);font-weight:600;line-height:1.2}
+.dark{background:var(--black);color:var(--white)}
+.light{background:var(--paper);color:var(--black)}
+.slot{display:grid;place-items:center;text-align:center;font-size:13px;padding:16px}
+.dark .slot{background:var(--card-dark);color:#8a8a8a}
+.dark .slot b{color:#ddd}
+.light .slot{background:#dde1e6;color:var(--soft)}
+.light .slot b{color:var(--ink)}
+.slot b{display:block;font-weight:600;font-size:14px;margin-bottom:2px}
+button:focus-visible,a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* Top bar + nav */
+.topbar{background:var(--black);color:var(--white);font-size:14px;font-weight:600;text-align:center;padding-block:10px}
+.nav{background:#121212;color:var(--white)}
+.nav .col{height:60px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-weight:900;letter-spacing:.12em;font-size:18px}
+.nav ul{display:flex;gap:56px;list-style:none;margin:0;padding:0;font-size:14px;color:#ddd}
+@media (max-width:900px){.nav ul{display:none}}
+
+/* Banner */
+.banner{position:relative;background:var(--black);color:var(--white);overflow:hidden}
+.banner video{display:block;width:100%;max-width:100%;height:clamp(460px,38.96vw,900px);object-fit:cover}
+.banner::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.28);pointer-events:none}
+.banner-copy{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+.banner h1{font-size:clamp(30px,2.9vw,52px);font-weight:600;line-height:1.2}
+.banner p{font-size:clamp(16px,1.25vw,24px)}
+.actions{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap;justify-content:center}
+.btn{height:44px;min-width:200px;padding:0 24px;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;font:600 16px var(--sans);text-decoration:none}
+.btn.fill{background:var(--white);color:var(--ink)}
+.btn.line{border:1px solid var(--white);color:var(--white)}
+
+/* 2. Angled Smith */
+.angle{position:relative;overflow:hidden;height:clamp(560px,42.3vw,812px)}
+.angle .art{position:absolute;left:24.27%;width:71.1%;top:calc(6.25vw - 9.86vw);pointer-events:none}
+.angle .col{position:relative;z-index:1;height:100%;display:flex;align-items:flex-end;padding-bottom:clamp(48px,6.25vw,120px)}
+.angle-text{display:flex;flex-direction:column;gap:16px;max-width:578px}
+.angle-text .k{font-size:clamp(16px,1.25vw,24px);font-weight:600;color:var(--blue);text-transform:uppercase}
+.angle-text h2{font-size:clamp(24px,1.67vw,32px);font-weight:600;line-height:1.2;max-width:369px}
+.angle-text p{color:var(--w50)}
+
+/* 3. Pick your angled */
+.pick{padding-block:80px;display:flex;flex-direction:column;gap:40px}
+.pick .head{display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
+.dpills{display:flex;gap:12px;padding:8px;border-radius:100px;background:var(--w10);max-width:100%;overflow-x:auto;scrollbar-width:none}
+.dpill{flex:0 0 auto;border:0;background:transparent;border-radius:50px;padding:12px 32px;font:600 clamp(14px,1.05vw,20px) var(--sans);color:var(--w40);cursor:pointer;white-space:nowrap}
+.dpill[aria-selected="true"]{background:var(--blue);color:var(--black)}
+.pcard{display:grid;grid-template-columns:minmax(0,852fr) minmax(0,524fr);gap:64px;align-items:center;background:var(--w10);border-radius:12px;overflow:hidden}
+.pcard .pic{aspect-ratio:852/563;max-width:100%;border-radius:12px;overflow:hidden;background:linear-gradient(#c7c7c7,#eae9e9);position:relative}
+.pcard .pic img{width:100%;height:100%;object-fit:cover}
+.pcard .pic::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(transparent,rgba(0,0,0,.2))}
+.pcard .pic .slot{height:100%;background:#2a2a2a}
+.pcard .txt{padding-right:40px}
+.pcard p{font-size:18px;color:var(--w50)}
+
+/* 4. Train heavy */
+.train{padding-block:80px 160px;display:flex;flex-direction:column;gap:40px}
+.train h2{text-align:center}
+.cards{display:grid;grid-template-columns:687fr 352fr 353fr;gap:24px}
+.lcard{position:relative;height:480px;border-radius:12px;overflow:hidden;background:var(--card-dark)}
+.lcard img{width:100%;height:100%;object-fit:cover}
+.lcard .slot{position:absolute;inset:0;background:var(--card-dark)}
+.lcard .cap{position:absolute;left:0;right:0;bottom:0;padding:20px}
+.lcard .cap strong{font-size:20px;line-height:26px;font-weight:600;color:#f9f7f4}
+.lcard .plus{position:absolute;top:20px;right:20px;width:32px;height:32px;border-radius:16px;background:var(--white);color:#0e0f12;display:grid;place-items:center;font-size:20px;line-height:1}
+
+/* 5. All in one */
+.aio{padding-block:160px 80px;display:flex;flex-direction:column;gap:40px}
+.aio-grid{display:grid;grid-template-columns:minmax(0,904fr) minmax(0,516fr);gap:20px;align-items:start}
+.stage{position:relative;aspect-ratio:904/539;max-width:100%;border-radius:12px;overflow:hidden;background:var(--card-dark)}
+.stage img,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.acc{display:flex;flex-direction:column;gap:16px}
+.acc-item{border-radius:12px;background:var(--b05)}
+.acc-item.open{background:var(--b10)}
+.acc-btn{width:100%;display:flex;gap:8px;align-items:flex-start;background:none;border:0;padding:20px;text-align:left;cursor:pointer;font:inherit}
+.chev{flex:0 0 28px;height:26px;display:grid;place-items:center}
+.chev::before{content:"";width:8px;height:8px;border-right:1px solid var(--soft);border-bottom:1px solid var(--soft);transform:rotate(45deg) translate(-2px,-2px)}
+.open .chev::before{border-color:#0e0f12;transform:rotate(-135deg) translate(-2px,-2px)}
+.acc-text{display:flex;flex-direction:column;gap:8px;min-width:0}
+.acc-text strong{font-size:clamp(16px,1.05vw,20px);line-height:26px;font-weight:600;color:var(--b30)}
+.open .acc-text strong{color:#0e0f12}
+.acc-text span{display:none;font-size:12px;color:var(--soft)}
+.open .acc-text span{display:block}
+
+.aio-head{display:flex;flex-direction:column;gap:8px}
+.aio-head p{font-size:18px;color:var(--grey)}
+.limit .btn{min-width:160px}
+/* 6. Full gym */
+.gym{padding-block:80px;display:flex;flex-direction:column;gap:24px}
+.gym-grid{display:grid;grid-template-columns:repeat(3,minmax(0,464px));gap:24px}
+.gym-card{display:flex;flex-direction:column;gap:24px}
+.gym-card .slot,.gym-card .pic{aspect-ratio:464/465;width:100%;max-width:100%;border-radius:10px;object-fit:cover}
+.gym-card .txt{display:flex;flex-direction:column;gap:16px}
+.gym-card h3{font-size:26px;font-weight:500;letter-spacing:-.03em;line-height:1.2}
+.gym-card p{color:var(--b50)}
+
+/* 7. Details carousel */
+.details{padding-block:80px;display:flex;flex-direction:column;gap:40px}
+.details .head{display:flex;flex-direction:column;gap:16px}
+.details .head p{font-size:18px;color:var(--grey)}
+.track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-left:max(var(--gutter),calc((100% - 1440px)/2));padding-right:var(--gutter-r);scroll-padding-left:max(var(--gutter),calc((100% - 1440px)/2))}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 min(952px,84vw);scroll-snap-align:start;display:flex;flex-direction:column;gap:40px}
+.media{position:relative;aspect-ratio:952/613;max-width:100%;border-radius:10px;overflow:hidden;background:var(--black)}
+.media img{width:100%;height:100%;object-fit:cover}
+.media .slot{height:100%}
+.slide .txt{display:flex;flex-direction:column;gap:16px}
+.slide h3{font-size:clamp(22px,1.7vw,32px);font-weight:500}
+.slide p{font-size:clamp(15px,.95vw,18px);color:var(--b50);max-width:946px}
+.arrows{display:flex;justify-content:flex-end;gap:15px}
+.arrow{width:36px;height:36px;border-radius:36px;border:0;background:var(--blue);color:var(--white);cursor:pointer;font-size:18px;display:grid;place-items:center}
+.arrow:disabled{background:#333336;opacity:.36;cursor:default}
+
+/* 8. Trust */
+.trust{padding-block:80px 160px;display:flex;flex-direction:column;gap:40px}
+.trust .head{display:flex;flex-direction:column;gap:24px}
+.lpills{display:flex;gap:4px;padding:4px;border-radius:100px;background:var(--b10);width:max-content;max-width:100%}
+.lpill{padding:12px 22px;border:0;border-radius:50px;background:transparent;color:var(--b40);font:600 16px var(--sans);cursor:pointer;white-space:nowrap}
+.lpill[aria-selected="true"]{background:var(--blue-2);color:var(--white);font-weight:700;font-size:14px}
+.reviews{display:grid;grid-template-columns:repeat(3,minmax(0,464px));gap:24px}
+.review{background:var(--b10);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.review .vid{height:260px;background:var(--card-dark);display:grid;place-items:center}
+.review .vid i{width:50px;height:50px;border-radius:25px;background:var(--white);display:grid;place-items:center}
+.review .vid i::before{content:"";border-left:12px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.review .body{padding:24px 24px 36px;display:flex;flex-direction:column;gap:12px}
+.review .body strong{font-size:20px;line-height:28px;font-weight:600;color:#18181b}
+.review .body p{font-size:14px;line-height:1.2;color:var(--muted)}
+
+/* 9. Test to the Limit */
+.limit{position:relative;background:var(--black);color:var(--white);overflow:hidden}
+.limit video{display:block;width:100%;max-width:100%;height:clamp(520px,46.9vw,900px);object-fit:cover}
+.limit::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.42);pointer-events:none}
+.limit-copy{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;text-align:center;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+.limit h2{font-size:clamp(40px,3.4vw,64px);font-weight:900;line-height:1.1}
+.limit .tag{font-size:16px;font-weight:700;letter-spacing:1px}
+.limit p.body{font-size:16px;line-height:1.6;max-width:640px}
+.limit .note{font-size:12px;color:var(--w50);border:1px dashed rgba(255,255,255,.35);border-radius:100px;padding:6px 14px}
+
+footer{background:var(--white);color:var(--soft);font-size:12px}
+footer .col{padding-block:24px}
+
+@media (max-width:900px){
+  .angle{height:auto}
+  .angle .art{position:static;width:100%;margin-top:24px}
+  .angle .col{padding-block:8px 56px}
+  .pcard,.cards,.gym-grid,.reviews,.aio-grid{grid-template-columns:1fr}
+  .pcard{gap:0}.pcard .txt{padding:24px}.pcard p{font-size:16px}
+  .lcard{height:300px}
+  .pick,.gym,.details{padding-block:56px}
+  .train{padding-block:56px 80px}
+  .aio{padding-block:80px 56px}
+  .trust{padding-block:56px 80px}
+  .slide{gap:20px}
+  .btn{min-width:150px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">MERACH Spring Forward Sale!</div>
+<nav class="nav"><div class="col"><span class="logo">MERACH</span><ul><li>Sale</li><li>ShopType</li><li>ShopGoal</li><li>APPS</li><li>Support</li></ul><span></span></div></nav>
+
+<!-- 1. Banner -->
+<header class="banner">
+  <video src="assets/hero.mp4" poster="assets/hero-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+  <div class="banner-copy">
+    <h1>All-In-One Angled Smith Machine</h1>
+    <p>Merach P16, Free-Weight Feel. Machine Backup</p>
+    <div class="actions">
+      <a class="btn fill" href="https://cristobalworkingdu-create.github.io/merach-P16-pdp/" target="_blank" rel="noopener">Shop Now</a>
+      <a class="btn line" href="#limit">Video</a>
+    </div>
+  </div>
+</header>
+
+<!-- 2. Angled Smith -->
+<section class="angle dark">
+  <img class="art" src="assets/angle.jpg" alt="P16 frame with the angled Smith rail highlighted">
+  <div class="col">
+    <div class="angle-text">
+      <div class="k">Angled Smith</div>
+      <h2>Two Bar Paths. One Pull.Quick-Tilt Switches</h2>
+      <p>Rows, incline presses and split squats all carry horizontal travel inside the lift — the bar was never meant to run straight up. A fixed vertical rail deletes that travel and forces body compensation. The 7° rail accommodates it for smoother force delivery and reduced compensation risk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Pick your angle -->
+<section class="dark">
+  <div class="col pick">
+    <div class="head">
+      <h2 class="h44">Pick Your Angle</h2>
+      <div class="dpills" role="tablist" id="pickTabs">
+        <button class="dpill" role="tab" aria-selected="true" data-i="0">Quick-Tilt in a Single Pull</button>
+        <button class="dpill" role="tab" aria-selected="false" data-i="1">Targeted Muscle Engagement</button>
+        <button class="dpill" role="tab" aria-selected="false" data-i="2">Smooth &amp; Natural Movement</button>
+        <button class="dpill" role="tab" aria-selected="false" data-i="3">Free Weight &amp; No Angle at All</button>
+      </div>
+    </div>
+    <div class="pcard">
+      <div class="pic"><img id="pickImg" src="assets/pick-1.jpg" alt=""></div>
+      <div class="txt"><p id="pickText">One pull is all it takes — the built-in mechanism does the rest in seconds. Switch between vertical and 7° mid-session, without tools, without leaving the rack.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Train heavy -->
+<section class="dark">
+  <div class="col train">
+    <h2 class="h44">Train Heavy. Train Safe.</h2>
+    <div class="cards">
+      <div class="lcard"><img src="assets/train-1.jpg" alt=""><div class="cap"><strong>Commercial-Grade Frame</strong></div></div>
+      <div class="lcard"><img src="assets/train-2.jpg" alt=""><span class="plus">+</span><div class="cap"><strong>Heavy-Duty Protection</strong></div></div>
+      <div class="lcard"><img src="assets/train-3.jpg" alt=""><span class="plus">+</span><div class="cap"><strong>Rated vs. Tested</strong></div></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <!-- 5. All in one Home Gym -->
+  <section class="light" id="aio">
+    <div class="col aio">
+      <div class="aio-head"><h2 class="h44">All in One Home Gym</h2><p>Push. Pull. Squat. Row — all on one frame.</p></div>
+      <div class="aio-grid">
+        <div class="stage" id="stage"><video src="assets/move-4.mp4" poster="assets/move-4.jpg" autoplay muted loop playsinline preload="auto"></video></div>
+        <div class="acc" id="acc">
+          <div class="acc-item open"><button class="acc-btn" data-src="assets/move-4" aria-expanded="true"><span class="chev"></span><span class="acc-text"><strong>Angled Smith Squat</strong></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-0" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Cable System</strong></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-2" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Free Weight Bench Press</strong></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-3" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Pull-Up</strong></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-5" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Bent-Over Row / Landmine</strong></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-1" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Seated Row</strong></span></button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Full gym -->
+  <section class="light">
+    <div class="col gym">
+      <h2 class="h44">A Full Gym.38 sq ft.</h2>
+      <div class="gym-grid">
+        <div class="gym-card"><img class="pic" src="assets/gym-1.jpg" alt=""><div class="txt"><h3>Everything Has a Home</h3><p>An integrated pegboard takes the handles and straps; plate horns take the weights. Everything you train with stays within arm’s reach of where you train.</p></div></div>
+        <div class="gym-card"><img class="pic" src="assets/gym-2.jpg" alt=""><div class="txt"><h3>The Posts Store, Too</h3><p>3×3 in uprights front and rear share one hole pattern, so a storage mount bolts anywhere a training attachment does — including a vertical holder that stands the Olympic bar on the frame. Nothing leans against a wall between sessions.</p></div></div>
+        <div class="gym-card"><img class="pic" src="assets/gym-3.jpg" alt=""><div class="txt"><h3>Weight Off the Floor</h3><p>Two built-in 145 lb stacks and 220 lb of plate capacity on the horns — all of it stored inside the footprint, none of it on your floor. One frame carries the resistance, the bar, the handles and the plates, in 38 sq ft.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Details carousel -->
+  <section class="light details">
+    <div class="col head">
+      <h2 class="h44">Details You Feel Every Rep.</h2>
+      <p>Machined aluminum pulleys and handles, knurled bars, braced footplate, one-handed trolley.</p>
+    </div>
+    <div class="track" id="detailTrack">
+      <div class="slide"><div class="media"><img src="assets/detail-1.jpg" alt=""></div><div class="txt"><h3>Machined Aluminum Throughout</h3><p>Pulleys, handles, footplate are machined aluminum, not moulded plastic — one material standard across every contact point. Resistance stays even end to end, with no catch and no rattle.</p></div></div>
+      <div class="slide"><div class="media"><img src="assets/detail-2b.jpg" alt=""></div><div class="txt"><h3>Quiet, Guided Cable Routing</h3><p>Dedicated routing guides open up the cable path while machined aluminum pulleys keep it smooth and quiet. A 2:1 ratio on independent left and right stacks lets you train one side at a time.</p></div></div>
+      <div class="slide"><div class="media"><img src="assets/detail-3.jpg" alt=""></div><div class="txt"><h3>One-Handed Adjustment</h3><p>The pulley trolley glides and locks with one hand, and the lat pulldown sets up the same way. Adjustments happen between sets, not instead of them.</p></div></div>
+      <div class="slide"><div class="media"><img src="assets/detail-4.jpg" alt=""></div><div class="txt"><h3>Laser-Cut, Hand-Friendly Uprights</h3><p>1 in holes on 2 in centers, laser-cut and deburred — reach through to set a J-hook and there’s no edge to catch your hand. Positions are numbered so you return to the same setting every session, and it’s the standard 1 in / 2 in pattern most rack attachments are built around.</p></div></div>
+      <div class="slide"><div class="media"><img src="assets/detail-5.jpg" alt=""></div><div class="txt"><h3>Multi-Grip Pull-Up Bar</h3><p>Knurled wide, narrow, overhand and neutral positions. The grip holds through sweat, so the set ends when the muscle does.</p></div></div>
+      <div class="slide"><div class="media"><img src="assets/detail-6.jpg" alt=""></div><div class="txt"><h3>You Stay Seated</h3><p>The leg holder pins your thighs across eleven positions, set to your leg length. Heavy pulldowns then pull your lats down instead of pulling you up off the seat.</p></div></div>
+      <div class="slide"><div class="media"><img src="assets/detail-7b.jpg" alt=""></div><div class="txt"><h3>Stack First, Plates on Top</h3><p>A 145 lb weight stack per side changes load with one pin, so drop sets and quick swaps never stall the session. When the stack runs out, the extender peg takes another 220 lb of plates, for 365 lb per side without a single plate on the floor.</p></div></div>
+    </div>
+    <div class="col arrows"><button class="arrow" data-dir="-1" data-for="detailTrack" aria-label="Previous">‹</button><button class="arrow" data-dir="1" data-for="detailTrack" aria-label="Next">›</button></div>
+  </section>
+
+  <!-- 8. Trust -->
+  <section class="light">
+    <div class="col trust">
+      <div class="head">
+        <h2 class="h44">All You Can Trust</h2>
+        <div class="lpills" role="tablist" id="trustTabs">
+          <button class="lpill" role="tab" aria-selected="true">Reviews</button>
+          <button class="lpill" role="tab" aria-selected="false">Drop Test Report</button>
+        </div>
+      </div>
+      <div class="reviews">
+        <div class="review"><div class="vid"><i></i></div><div class="body"><strong>Coach Brandon - LiftTech</strong><p>"The 7-degree trajectory feels incredibly natural for heavy squats. Under load, there is absolutely zero sway. It performs like commercial equipment."</p></div></div>
+        <div class="review"><div class="vid"><i></i></div><div class="body"><strong>Coach Brandon - LiftTech</strong><p>"The 7-degree trajectory feels incredibly natural for heavy squats. Under load, there is absolutely zero sway. It performs like commercial equipment."</p></div></div>
+        <div class="review"><div class="vid"><i></i></div><div class="body"><strong>Coach Brandon - LiftTech</strong><p>"The 7-degree trajectory feels incredibly natural for heavy squats. Under load, there is absolutely zero sway. It performs like commercial equipment."</p></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 9. CTA over drop-test video -->
+<section class="limit" id="limit">
+  <video src="assets/test.mp4" poster="assets/test-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+  <div class="limit-copy">
+    <h2>P16 SMITH</h2>
+    <div class="tag">THE DUAL-TRAJECTORY SMITH MACHINE</div>
+    <p class="body">Secure your priority manufacturing queue slot. Pre-order now to guarantee a refundable deposit slot, and lock in custom upgrade extras.</p>
+    <a class="btn fill" href="https://cristobalworkingdu-create.github.io/merach-P16-pdp/" target="_blank" rel="noopener">Shop Now</a>
+  </div>
+</section>
+
+<footer><div class="col">© 2026 MERACH · P16 preview build</div></footer>
+
+<script>
+function tabs(id,sel,fn){const g=document.getElementById(id);g.addEventListener('click',e=>{const b=e.target.closest(sel);if(!b)return;g.querySelectorAll(sel).forEach(x=>x.setAttribute('aria-selected',x===b));fn&&fn(b)})}
+
+// Pick Your Angled: copy from the Figma states; images 2–4 still to come
+const pick=[
+  {img:'assets/pick-1.jpg',t:'One pull is all it takes — the built-in mechanism does the rest in seconds. Switch between vertical and 7° mid-session, without tools, without leaving the rack.'},
+  {img:'assets/pick-2.jpg',t:'Angle changes where resistance meets the muscle. Align the bar path with your target and the load concentrates there — a quad bias in the squat, a glute bias in the split squat. The isolation comes from geometry, not from adding plates.'},
+  {img:'assets/pick-3.jpg',t:'Rows, incline presses and split squats all carry horizontal travel inside the lift — the bar was never meant to run straight up. A fixed vertical rail deletes that travel and forces body compensation. The 7° rail accommodates it for smoother force delivery and reduced compensation risk.'},
+  {img:'assets/pick-4.jpg',t:'Not a machine person? Then don’t use one. Take the bar off the rail and the same uprights become a true barbell station — squats, bench, press, with catches set to your depth, plus attachments for pulldown and row. Vertical, 7°, or free — pick ur angled.'}
+];
+tabs('pickTabs','.dpill',b=>{const p=pick[+b.dataset.i];pickImg.src=p.img;pickText.textContent=p.t;});
+tabs('trustTabs','.lpill');
+
+// All in one accordion: first item is the still, the rest are movement clips
+const stage=document.getElementById('stage');
+document.getElementById('acc').addEventListener('click',e=>{
+  const b=e.target.closest('.acc-btn');if(!b)return;
+  document.querySelectorAll('.acc-item').forEach(it=>{const on=it.contains(b);it.classList.toggle('open',on);it.firstElementChild.setAttribute('aria-expanded',on)});
+  const s=b.dataset.src;
+  stage.innerHTML=s.endsWith('.jpg')?'<img src="'+s+'" alt="">':'<video src="'+s+'.mp4" poster="'+s+'.jpg" autoplay muted loop playsinline></video>';
+  const v=stage.querySelector('video');if(v)v.play().catch(()=>{});
+});
+
+// Details carousel arrows
+function updateArrows(t){const max=t.scrollWidth-t.clientWidth-2;document.querySelectorAll('.arrow[data-for="'+t.id+'"]').forEach(a=>{a.disabled=(+a.dataset.dir<0)?t.scrollLeft<=2:t.scrollLeft>=max})}
+document.querySelectorAll('.track').forEach(t=>{t.addEventListener('scroll',()=>updateArrows(t),{passive:true});updateArrows(t)});
+document.querySelectorAll('.arrow').forEach(a=>a.addEventListener('click',()=>{const t=document.getElementById(a.dataset.for);const s=t.querySelector('.slide');t.scrollBy({left:(+a.dataset.dir)*(s.offsetWidth+24),behavior:'smooth'})}));
+</script>
+</body>
+</html>
