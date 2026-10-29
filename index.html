@@ -207,10 +207,15 @@ footer .col{padding-block:24px}
   .aio-head p{font-size:15px}
   .aio-grid{grid-template-columns:1fr;gap:12px}
   .stage{border-radius:10px}
-  .acc{gap:8px}
-  .acc-btn{padding:12px 14px}
-  .acc-text strong{font-size:16px;line-height:22px}
-  .chev{height:22px}
+  /* All in One: movements become one swipeable chip row under the video */
+  .acc{flex-direction:row;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px}
+  .acc::-webkit-scrollbar{display:none}
+  .acc-item{flex:0 0 auto;border-radius:100px;background:var(--b05)}
+  .acc-item.open{background:var(--ink)}
+  .acc-btn{padding:9px 16px}
+  .chev{display:none}
+  .acc-text strong{font-size:14px;line-height:20px;white-space:nowrap;color:rgba(0,0,0,.55)}
+  .open .acc-text strong{color:var(--white)}
   .gym{padding-block:40px;gap:20px}
   .details{padding-block:40px;gap:24px}
   .details .head p{font-size:15px}
@@ -399,6 +404,7 @@ tabs('trustTabs','.lpill');
 const stage=document.getElementById('stage');
 document.getElementById('acc').addEventListener('click',e=>{
   const b=e.target.closest('.acc-btn');if(!b)return;
+  b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
   document.querySelectorAll('.acc-item').forEach(it=>{const on=it.contains(b);it.classList.toggle('open',on);it.firstElementChild.setAttribute('aria-expanded',on)});
   const s=b.dataset.src;
   stage.innerHTML=s.endsWith('.jpg')?'<img src="'+s+'" alt="">':'<video src="'+s+'.mp4" poster="'+s+'.jpg" autoplay muted loop playsinline></video>';
