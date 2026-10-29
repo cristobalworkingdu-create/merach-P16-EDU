@@ -184,18 +184,59 @@ footer{background:var(--white);color:var(--soft);font-size:12px}
 footer .col{padding-block:24px}
 
 @media (max-width:900px){
+  .h44{font-size:26px}
   .angle{height:auto}
-  .angle .art{position:static;width:100%;margin-top:24px}
-  .angle .col{padding-block:8px 56px}
-  .pcard,.cards,.gym-grid,.reviews,.aio-grid{grid-template-columns:1fr}
-  .pcard{gap:0}.pcard .txt{padding:24px}.pcard p{font-size:16px}
-  .lcard{height:300px}
-  .pick,.gym,.details{padding-block:56px}
-  .train{padding-block:56px 80px}
-  .aio{padding-block:80px 56px}
-  .trust{padding-block:56px 80px}
-  .slide{gap:20px}
-  .btn{min-width:150px}
+  .angle .art{position:static;width:100%;margin-top:16px}
+  .angle .col{padding-block:0 48px}
+  .angle-text{gap:12px}.angle-text p{font-size:15px}
+  .pick{padding-block:48px;gap:24px}
+  .pick .head{gap:16px}
+  .dpills{max-width:calc(100% + 32px);margin-inline:-16px;padding:6px;border-radius:0;background:none;gap:8px;padding-inline:16px;scroll-padding-inline:16px}
+  .dpill{padding:9px 16px;font-size:14px;background:var(--w10)}
+  .pcard{grid-template-columns:1fr;gap:0}.pcard .txt{padding:20px}.pcard p{font-size:15px}
+  /* swipe rows */
+  .cards,.gym-grid,.reviews{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px;scrollbar-width:none}
+  .cards::-webkit-scrollbar,.gym-grid::-webkit-scrollbar,.reviews::-webkit-scrollbar{display:none}
+  .lcard{flex:0 0 78vw;height:380px;scroll-snap-align:start}
+  .gym-card{flex:0 0 78vw;scroll-snap-align:start;gap:16px}
+  .gym-card h3{font-size:20px}.gym-card p{font-size:14px}
+  .review{flex:0 0 82vw;scroll-snap-align:start}
+  .review .vid{height:200px}.review .body{padding:20px}.review .body strong{font-size:17px}
+  .train{padding-block:48px 64px;gap:24px}
+  .aio{padding-block:56px 40px;gap:24px}
+  .aio-head p{font-size:15px}
+  .aio-grid{grid-template-columns:1fr;gap:12px}
+  .stage{border-radius:10px}
+  .acc{gap:8px}
+  .acc-btn{padding:12px 14px}
+  .acc-text strong{font-size:16px;line-height:22px}
+  .chev{height:22px}
+  .gym{padding-block:40px;gap:20px}
+  .details{padding-block:40px;gap:24px}
+  .details .head p{font-size:15px}
+  .slide{flex-basis:86vw;gap:16px}
+  .slide h3{font-size:20px}.slide p{font-size:14px}
+  .details .arrows{display:none}
+  .trust{padding-block:40px 64px;gap:24px}
+  .lpill{padding:10px 18px;font-size:14px}
+  .limit video{height:560px}
+  .limit-copy{gap:16px}
+  .limit h2{font-size:40px}
+  .limit .tag{font-size:13px}
+  .limit p.body{font-size:14px}
+  .btn{min-width:0;flex:1;max-width:220px}
+  .limit .btn{flex:0 0 auto;min-width:180px}
+}
+/* Mobile banner: portrait video, copy at the bottom */
+@media (max-width:767px){
+  .topbar{font-size:12px;padding-block:8px}
+  .nav .col{height:52px}
+  .banner video{height:min(calc(100svh - 86px),214.5vw);min-height:520px}
+  .banner::after{background:linear-gradient(to bottom,rgba(0,0,0,0) 45%,rgba(0,0,0,.7) 100%)}
+  .banner-copy{justify-content:flex-end;gap:10px;padding-bottom:32px}
+  .banner h1{font-size:28px}
+  .banner p{font-size:15px}
+  .actions{width:100%;gap:12px;margin-top:10px;flex-wrap:nowrap}
 }
 </style>
 </head>
@@ -205,7 +246,8 @@ footer .col{padding-block:24px}
 
 <!-- 1. Banner -->
 <header class="banner">
-  <video src="assets/hero.mp4" poster="assets/hero-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+  <video id="heroVideo" autoplay muted loop playsinline preload="auto" data-desktop="assets/hero.mp4" data-desktop-poster="assets/hero-poster.jpg" data-mobile="assets/hero-m.mp4" data-mobile-poster="assets/hero-m-poster.jpg"></video>
+  <script>(function(){var v=document.getElementById('heroVideo'),m=window.matchMedia('(max-width: 767px)');function set(){var k=m.matches?'mobile':'desktop';var src=v.getAttribute('data-'+k);if(v.getAttribute('src')!==src){v.poster=v.getAttribute('data-'+k+'-poster');v.src=src;v.play&&v.play().catch(function(){});}}set();m.addEventListener&&m.addEventListener('change',set);})();</script>
   <div class="banner-copy">
     <h1>All-In-One Angled Smith Machine</h1>
     <p>Merach P16, Free-Weight Feel. Machine Backup</p>
@@ -350,7 +392,7 @@ const pick=[
   {img:'assets/pick-3.jpg',t:'Rows, incline presses and split squats all carry horizontal travel inside the lift — the bar was never meant to run straight up. A fixed vertical rail deletes that travel and forces body compensation. The 7° rail accommodates it for smoother force delivery and reduced compensation risk.'},
   {img:'assets/pick-4.jpg',t:'Not a machine person? Then don’t use one. Take the bar off the rail and the same uprights become a true barbell station — squats, bench, press, with catches set to your depth, plus attachments for pulldown and row. Vertical, 7°, or free — pick ur angled.'}
 ];
-tabs('pickTabs','.dpill',b=>{const p=pick[+b.dataset.i];pickImg.src=p.img;pickText.textContent=p.t;});
+tabs('pickTabs','.dpill',b=>{b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});const p=pick[+b.dataset.i];pickImg.src=p.img;pickText.textContent=p.t;});
 tabs('trustTabs','.lpill');
 
 // All in one accordion: first item is the still, the rest are movement clips
