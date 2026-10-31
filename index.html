@@ -105,6 +105,8 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--blue);outline-offse
 .lcard img{width:100%;height:100%;object-fit:cover}
 .lcard .slot{position:absolute;inset:0;background:var(--card-dark)}
 .lcard .cap{position:absolute;left:0;right:0;bottom:0;padding:20px}
+.lcard .cap{display:flex;flex-direction:column;gap:8px;background:linear-gradient(transparent,rgba(0,0,0,.72));padding-top:60px}
+.lcard .cap span{font-size:14px;line-height:1.4;color:#c4c3c1;max-width:476px}
 .lcard .cap strong{font-size:20px;line-height:26px;font-weight:600;color:#f9f7f4}
 .lcard .plus{position:absolute;top:20px;right:20px;width:32px;height:32px;border-radius:16px;background:var(--white);color:#0e0f12;display:grid;place-items:center;font-size:20px;line-height:1}
 
@@ -123,9 +125,10 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--blue);outline-offse
 .acc-text{display:flex;flex-direction:column;gap:8px;min-width:0}
 .acc-text strong{font-size:clamp(16px,1.05vw,20px);line-height:26px;font-weight:600;color:var(--b30)}
 .open .acc-text strong{color:#0e0f12}
-.acc-text span{display:none;font-size:12px;color:var(--soft)}
+.acc-text span{display:none;font-size:13px;line-height:1.5;color:var(--grey)}
 .open .acc-text span{display:block}
 
+.aio-desc{display:none}
 .aio-head{display:flex;flex-direction:column;gap:8px}
 .aio-head p{font-size:18px;color:var(--grey)}
 .limit .btn{min-width:160px}
@@ -208,6 +211,8 @@ footer .col{padding-block:24px}
   .aio-grid{grid-template-columns:1fr;gap:12px}
   .stage{border-radius:10px}
   /* All in One: movements become one swipeable chip row under the video */
+  .aio-desc{display:block!important;font-size:14px;line-height:1.5;color:var(--grey);margin:0}
+  .acc-text span{display:none!important}
   .acc{flex-direction:row;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px}
   .acc::-webkit-scrollbar{display:none}
   .acc-item{flex:0 0 auto;border-radius:100px;background:var(--b05)}
@@ -299,9 +304,9 @@ footer .col{padding-block:24px}
   <div class="col train">
     <h2 class="h44">Train Heavy. Train Safe.</h2>
     <div class="cards">
-      <div class="lcard"><img src="assets/train-1.jpg" alt=""><div class="cap"><strong>Commercial-Grade Frame</strong></div></div>
-      <div class="lcard"><img src="assets/train-2.jpg" alt=""><span class="plus">+</span><div class="cap"><strong>Heavy-Duty Protection</strong></div></div>
-      <div class="lcard"><img src="assets/train-3.jpg" alt=""><span class="plus">+</span><div class="cap"><strong>Rated vs. Tested</strong></div></div>
+      <div class="lcard"><img src="assets/train-1.jpg" alt=""><div class="cap"><strong>3×3 in Steel Uprights</strong><span>3×3 in uprights, front and rear. That's 9 sq in of cross-section per post against 6 for a 2×3 — 50% more steel resisting the twist. Nothing flexes, nothing rattles when the load goes up.</span></div></div>
+      <div class="lcard"><img src="assets/train-2.jpg" alt=""><span class="plus">+</span><div class="cap"><strong>Heavy-Duty Protection</strong><span>20 Smith lock points at 3 in spacing, 7 mm steel stops drop-tested at 400 lb from 18 in, and safety arms tested to 1,500 lb static and 500 lb drop. Miss a rep alone and the bar still gets caught.</span></div></div>
+      <div class="lcard"><img src="assets/train-3.jpg" alt=""><span class="plus">+</span><div class="cap"><strong>Rated vs. Tested</strong><span>Built to the standard, then tested past it. Every catch point is drop-tested and load-tested well beyond the weight you'll actually lift — watch the tests below.</span></div></div>
     </div>
   </div>
 </section>
@@ -314,14 +319,15 @@ footer .col{padding-block:24px}
       <div class="aio-grid">
         <div class="stage" id="stage"><video src="assets/move-4.mp4" poster="assets/move-4.jpg" autoplay muted loop playsinline preload="auto"></video></div>
         <div class="acc" id="acc">
-          <div class="acc-item open"><button class="acc-btn" data-src="assets/move-4" aria-expanded="true"><span class="chev"></span><span class="acc-text"><strong>Angled Smith Squat</strong></span></button></div>
-          <div class="acc-item"><button class="acc-btn" data-src="assets/move-0" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Cable System</strong></span></button></div>
-          <div class="acc-item"><button class="acc-btn" data-src="assets/move-2" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Free Weight Bench Press</strong></span></button></div>
-          <div class="acc-item"><button class="acc-btn" data-src="assets/move-3" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Pull-Up</strong></span></button></div>
-          <div class="acc-item"><button class="acc-btn" data-src="assets/move-5" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Bent-Over Row / Landmine</strong></span></button></div>
-          <div class="acc-item"><button class="acc-btn" data-src="assets/move-1" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Seated Row</strong></span></button></div>
+          <div class="acc-item open"><button class="acc-btn" data-src="assets/move-4" aria-expanded="true"><span class="chev"></span><span class="acc-text"><strong>Dual-Angled Smith Squat</strong><span>7° of travel means the bar tracks forward as you descend, the way a free squat already does. Guided path, no spotter, catches set before you start.</span></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-0" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Cable System</strong><span>Resistance comes from above the shoulder line, so tension stays on the chest across the whole arc instead of falling off at the top. The same cable system runs pushdowns, curls, face pulls, lateral raises — anywhere a free bar can't hold tension.</span></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-2" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>3×3 in Power Rack</strong><span>Take the Olympic bar from its holder on the rear uprights, set the safety arms and J-hooks, unrack, and the bar follows your own groove — the frame only steps in if you miss.</span></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-3" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Pull-Up Station</strong><span>Vertical pulling with nothing but bodyweight. Shift your grip wide, neutral or close and the same bar gives you three different lat angles.</span></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-5" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Bent-Over Row / Landmine</strong><span>Hinge at the hip and pull from the low pulley — the cable holds tension at the bottom of the rep, where a barbell goes slack. Swap to the landmine and the same hinge becomes a rotational pull, with the arc doing the work instead of the line.</span></span></button></div>
+          <div class="acc-item"><button class="acc-btn" data-src="assets/move-1" aria-expanded="false"><span class="chev"></span><span class="acc-text"><strong>Seated Row</strong><span>Drop the pulley to the bottom, plant your feet on the footplate, and the travel stays in your back instead of leaking into your lower back. No dedicated seat to store — the folding bench works, so does the mat.</span></span></button></div>
         </div>
       </div>
+      <p class="aio-desc" id="aioDesc"></p>
     </div>
   </section>
 
@@ -331,8 +337,8 @@ footer .col{padding-block:24px}
       <h2 class="h44">A Full Gym.38 sq ft.</h2>
       <div class="gym-grid">
         <div class="gym-card"><img class="pic" src="assets/gym-1.jpg" alt=""><div class="txt"><h3>Everything Has a Home</h3><p>An integrated pegboard takes the handles and straps; plate horns take the weights. Everything you train with stays within arm’s reach of where you train.</p></div></div>
-        <div class="gym-card"><img class="pic" src="assets/gym-2.jpg" alt=""><div class="txt"><h3>The Posts Store, Too</h3><p>3×3 in uprights front and rear share one hole pattern, so a storage mount bolts anywhere a training attachment does — including a vertical holder that stands the Olympic bar on the frame. Nothing leans against a wall between sessions.</p></div></div>
-        <div class="gym-card"><img class="pic" src="assets/gym-3.jpg" alt=""><div class="txt"><h3>Weight Off the Floor</h3><p>Two built-in 145 lb stacks and 220 lb of plate capacity on the horns — all of it stored inside the footprint, none of it on your floor. One frame carries the resistance, the bar, the handles and the plates, in 38 sq ft.</p></div></div>
+        <div class="gym-card"><img class="pic" src="assets/gym-2.jpg" alt=""><div class="txt"><h3>The Posts Store, Too</h3><p>3×3 in uprights front and rear share one hole pattern — 1 in holes on 2 in centers — so a storage mount bolts anywhere a training attachment does, including a vertical holder that stands the Olympic bar on the frame. Nothing leans against a wall between sessions.</p></div></div>
+        <div class="gym-card"><img class="pic" src="assets/gym-3.jpg" alt=""><div class="txt"><h3>Weight Off the Floor</h3><p>Two built-in 145 lb weight stacks, each with a peg that takes another 220 lb of plates — up to 365 lb of resistance per side. All of it stored inside the footprint, none of it on your floor. One frame carries the resistance, the bar, the handles and the plates, in 38 sq ft.</p></div></div>
       </div>
     </div>
   </section>
@@ -366,9 +372,9 @@ footer .col{padding-block:24px}
         </div>
       </div>
       <div class="reviews">
-        <div class="review"><div class="vid"><i></i></div><div class="body"><strong>Coach Brandon - LiftTech</strong><p>"The 7-degree trajectory feels incredibly natural for heavy squats. Under load, there is absolutely zero sway. It performs like commercial equipment."</p></div></div>
-        <div class="review"><div class="vid"><i></i></div><div class="body"><strong>Coach Brandon - LiftTech</strong><p>"The 7-degree trajectory feels incredibly natural for heavy squats. Under load, there is absolutely zero sway. It performs like commercial equipment."</p></div></div>
-        <div class="review"><div class="vid"><i></i></div><div class="body"><strong>Coach Brandon - LiftTech</strong><p>"The 7-degree trajectory feels incredibly natural for heavy squats. Under load, there is absolutely zero sway. It performs like commercial equipment."</p></div></div>
+        <div class="review"><div class="vid"><i></i></div><div class="body"><strong>[Creator Name] – [Channel]</strong><p>[Review quote]</p></div></div>
+        <div class="review"><div class="vid"><i></i></div><div class="body"><strong>[Creator Name] – [Channel]</strong><p>[Review quote]</p></div></div>
+        <div class="review"><div class="vid"><i></i></div><div class="body"><strong>[Creator Name] – [Channel]</strong><p>[Review quote]</p></div></div>
       </div>
     </div>
   </section>
@@ -379,8 +385,8 @@ footer .col{padding-block:24px}
   <video src="assets/test.mp4" poster="assets/test-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
   <div class="limit-copy">
     <h2>P16 SMITH</h2>
-    <div class="tag">THE DUAL-TRAJECTORY SMITH MACHINE</div>
-    <p class="body">Secure your priority manufacturing queue slot. Pre-order now to guarantee a refundable deposit slot, and lock in custom upgrade extras.</p>
+    <div class="tag">DROP-TESTED. LOAD-TESTED.</div>
+    <p class="body">500 lb dropped onto the safety arms from 18 in. 1,500 lb held static. When you train alone and miss a rep, the frame is your spotter.</p>
     <a class="btn fill" href="https://cristobalworkingdu-create.github.io/merach-P16-pdp/" target="_blank" rel="noopener">Shop Now</a>
   </div>
 </section>
@@ -395,7 +401,7 @@ const pick=[
   {img:'assets/pick-1.jpg',t:'One pull is all it takes — the built-in mechanism does the rest in seconds. Switch between vertical and 7° mid-session, without tools, without leaving the rack.'},
   {img:'assets/pick-2.jpg',t:'Angle changes where resistance meets the muscle. Align the bar path with your target and the load concentrates there — a quad bias in the squat, a glute bias in the split squat. The isolation comes from geometry, not from adding plates.'},
   {img:'assets/pick-3.jpg',t:'Rows, incline presses and split squats all carry horizontal travel inside the lift — the bar was never meant to run straight up. A fixed vertical rail deletes that travel and forces body compensation. The 7° rail accommodates it for smoother force delivery and reduced compensation risk.'},
-  {img:'assets/pick-4.jpg',t:'Not a machine person? Then don’t use one. Take the bar off the rail and the same uprights become a true barbell station — squats, bench, press, with catches set to your depth, plus attachments for pulldown and row. Vertical, 7°, or free — pick ur angled.'}
+  {img:'assets/pick-4.jpg',t:"Not a machine person? Then don't use one. Lift the Olympic bar from its built-in holder on the rear uprights, set the J-hooks and safety arms on the same uprights, and train free — squat, bench, press. You feel every inch of the bar, and the frame still has your back."}
 ];
 tabs('pickTabs','.dpill',b=>{b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});const p=pick[+b.dataset.i];pickImg.src=p.img;pickText.textContent=p.t;});
 tabs('trustTabs','.lpill');
@@ -406,11 +412,13 @@ document.getElementById('acc').addEventListener('click',e=>{
   const b=e.target.closest('.acc-btn');if(!b)return;
   b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
   document.querySelectorAll('.acc-item').forEach(it=>{const on=it.contains(b);it.classList.toggle('open',on);it.firstElementChild.setAttribute('aria-expanded',on)});
-  const s=b.dataset.src;
+  const s=b.dataset.src;setDesc();
   stage.innerHTML=s.endsWith('.jpg')?'<img src="'+s+'" alt="">':'<video src="'+s+'.mp4" poster="'+s+'.jpg" autoplay muted loop playsinline></video>';
   const v=stage.querySelector('video');if(v)v.play().catch(()=>{});
 });
 
+function setDesc(){const o=document.querySelector('.acc-item.open .acc-text span');document.getElementById('aioDesc').textContent=o?o.textContent:''}
+setDesc();
 // Details carousel arrows
 function updateArrows(t){const max=t.scrollWidth-t.clientWidth-2;document.querySelectorAll('.arrow[data-for="'+t.id+'"]').forEach(a=>{a.disabled=(+a.dataset.dir<0)?t.scrollLeft<=2:t.scrollLeft>=max})}
 document.querySelectorAll('.track').forEach(t=>{t.addEventListener('scroll',()=>updateArrows(t),{passive:true});updateArrows(t)});
